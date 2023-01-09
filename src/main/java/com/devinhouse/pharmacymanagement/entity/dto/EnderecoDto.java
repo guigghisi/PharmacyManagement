@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 public class EnderecoDto {
-
+    private Long id;
     private String cep;
     private String logradouro;
     private Integer numero;
@@ -41,7 +41,7 @@ public class EnderecoDto {
 
     public EnderecoDto transformarEmDto(Endereco enderecoSalvo) {
         var enderecoDto = new EnderecoDto();
-
+        enderecoDto.setId(enderecoSalvo.getId());
         enderecoDto.setBairro(enderecoSalvo.getBairro());
         enderecoDto.setCep(enderecoSalvo.getCep());
         enderecoDto.setCidade(enderecoSalvo.getCidade());

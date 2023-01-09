@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Setter
 public class MedicamentoDto {
 
-
+    private Long id;
     private String nome_medicamento;
     private String nome_laboratorio;
     private String dosagem_medicamento;
@@ -20,8 +20,9 @@ public class MedicamentoDto {
     private String preco_unitario;
     private String tipo_medicamento;
 
-    public Medicamento transformarEmEntidawde() {
+    public Medicamento transformarEmEntidade() {
         var medicamento = new Medicamento();
+        //TODO MOSTRAR ID NO JSON
         medicamento.setNome_medicamento(nome_medicamento);
         medicamento.setNome_laboratorio(nome_laboratorio);
         medicamento.setDosagem_medicamento(dosagem_medicamento);
@@ -33,6 +34,7 @@ public class MedicamentoDto {
 
     public MedicamentoDto transformarEmDto(Medicamento medicamentoSalvo) {
         var medicamentoDto = new MedicamentoDto();
+        medicamentoDto.setId(medicamentoSalvo.getId());
         medicamentoDto.setNome_medicamento(medicamentoSalvo.getNome_medicamento());
         medicamentoDto.setNome_laboratorio(medicamentoSalvo.getNome_laboratorio());
         medicamentoDto.setDosagem_medicamento(medicamentoSalvo.getDosagem_medicamento());

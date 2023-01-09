@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 public class UsuarioDto {
-
+    private Long id;
     private String email;
     private String senha;
 
@@ -26,6 +26,7 @@ public class UsuarioDto {
 
     public UsuarioDto transformarEmDto(Usuario usuarioSalvo) {
         var usuarioDto = new UsuarioDto();
+        usuarioDto.setId(usuarioSalvo.getId());
         usuarioDto.setEmail(usuarioSalvo.getEmail());
         usuarioDto.setSenha(usuarioSalvo.getSenha());
         return usuarioDto;

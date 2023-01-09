@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 public class FarmaciaDto {
-
+    private Long id;
     private String razao_social;
     private String cnpj;
     private String nome_fantasia;
@@ -33,6 +33,7 @@ public class FarmaciaDto {
 
     public FarmaciaDto transformaEmDto(Farmacia farmaciaSalva) {
         var farmaciaDto = new FarmaciaDto();
+        farmaciaDto.setId(farmaciaSalva.getId());
         farmaciaDto.setRazao_social(farmaciaSalva.getRazao_social());
         farmaciaDto.setCnpj(farmaciaSalva.getCnpj());
         farmaciaDto.setNome_fantasia(farmaciaSalva.getNome_fantasia());
