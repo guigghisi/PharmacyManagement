@@ -15,7 +15,6 @@ import lombok.Setter;
 @Table(name = "farmacias")
 public class Farmacia {
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "A razão social da farmacia não pode estar vazia")
@@ -29,7 +28,8 @@ public class Farmacia {
     private String telefone;
     @NotNull(message = "O número de celular da farmacia não pode estar vazio")
     private String celular;
+    //TODO conectar
    /* @NotNull
     @OneToMany(mappedBy = "farmacias")
-    private List<Endereco> id_endereco;*/
+    private Endereco id_endereco;*/
 }

@@ -15,7 +15,6 @@ import lombok.Setter;
 @Table(name = "medicamentos")
 public class Medicamento {
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "O nome do medicamento não pode estar vazio")

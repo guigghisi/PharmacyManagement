@@ -15,7 +15,6 @@ import lombok.Setter;
 @Table(name = "enderecos")
 public class Endereco {
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "O CEP não pode estar vazio")
@@ -35,6 +34,7 @@ public class Endereco {
     private String latitude;
     @NotNull(message = "A longitude não pode estar vazia")
     private String longitude;
+    //TODO conectar
     /*
     @ManyToOne
     @JoinColumn(name = "id_endereco")
