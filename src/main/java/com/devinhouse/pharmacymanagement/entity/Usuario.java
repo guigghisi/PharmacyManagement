@@ -15,7 +15,6 @@ import lombok.Setter;
 @Table(name = "usuarios")
 public class Usuario {
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "O email não pode estar vazio")
