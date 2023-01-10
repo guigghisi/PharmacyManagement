@@ -2,6 +2,7 @@ package com.devinhouse.pharmacymanagement.entity.dto;
 
 import com.devinhouse.pharmacymanagement.entity.Usuario;
 import com.devinhouse.pharmacymanagement.exception.NenhumUsuarioException;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,10 +13,18 @@ import java.util.stream.Collectors;
 @Setter
 public class UsuarioDto {
     private Long id;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String email;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String senha;
 
-    public Usuario trasnformarEmEntidade() {
+    public static UsuarioDto retornarId(Usuario usuario) {
+        var usuarioDto = new UsuarioDto();
+        usuarioDto.setId(usuario.getId());
+        return usuarioDto;
+    }
+
+    public Usuario transformarEmEntidade() {
         var usuario = new Usuario();
 
         usuario.setEmail(this.email);

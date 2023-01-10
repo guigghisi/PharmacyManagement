@@ -19,7 +19,6 @@ public class Usuario {
     private Long id;
     @NotNull(message = "O email não pode estar vazio")
     private String email;
-
     @NotNull(message = "A senha não pode estar vazia")
     private String senha;
 }

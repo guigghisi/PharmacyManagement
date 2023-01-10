@@ -1,6 +1,7 @@
 package com.devinhouse.pharmacymanagement.service;
 
 import com.devinhouse.pharmacymanagement.entity.Usuario;
+import com.devinhouse.pharmacymanagement.entity.dto.UsuarioDto;
 import com.devinhouse.pharmacymanagement.exception.UsuarioDuplicadoException;
 import com.devinhouse.pharmacymanagement.exception.UsuarioOuSenhaException;
 import com.devinhouse.pharmacymanagement.repository.UsuarioRepository;
@@ -27,10 +28,10 @@ public class UsuarioService {
         return repository.save(usuario);
     }
 
-    public Long buscaUsuario(Usuario usuario) {
-        if (repository.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha()) != null) {
-            //TODO retornar em JSON
-            return usuario.getId();
+    public UsuarioDto buscaUsuario(Usuario usuario) {
+        var usuarioBanco = repository.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
+        if (usuarioBanco != null) {
+            return UsuarioDto.retornarId(usuarioBanco);
         }
         throw new UsuarioOuSenhaException();
     }

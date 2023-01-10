@@ -28,7 +28,7 @@ public class UsuarioController {
     @PostMapping("/cadastro")
     @ResponseStatus(HttpStatus.CREATED)
     public UsuarioDto cadastraUsuario(@RequestBody UsuarioDto usuarioDto) {
-        var usuario = usuarioDto.trasnformarEmEntidade();
+        var usuario = usuarioDto.transformarEmEntidade();
         var usuarioSalvo = usuarioService.criarNoVoUsuario(usuario);
 
         return usuarioDto.transformarEmDto(usuarioSalvo);
@@ -36,8 +36,8 @@ public class UsuarioController {
 
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.FOUND)
-    public Long consultaUsuario(@RequestBody UsuarioDto usuarioDto) {
-        var usuario = usuarioDto.trasnformarEmEntidade();
+    public UsuarioDto consultaUsuario(@RequestBody UsuarioDto usuarioDto) {
+        var usuario = usuarioDto.transformarEmEntidade();
         return usuarioService.buscaUsuario(usuario);
     }
 }
