@@ -22,7 +22,7 @@ public class EnderecoDto {
     private String latitude;
     private String longitude;
 
-    public Endereco trasnformarEmEntidade() {
+    public Endereco transformarEmEntidade() {
         var endereco = new Endereco();
 
         endereco.setBairro(this.bairro);

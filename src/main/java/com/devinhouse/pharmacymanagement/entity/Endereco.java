@@ -34,9 +34,4 @@ public class Endereco {
     private String latitude;
     @NotNull(message = "A longitude não pode estar vazia")
     private String longitude;
-    //TODO conectar
-    /*
-    @ManyToOne
-    @JoinColumn(name = "id_endereco")
-    private Farmacia farmacia;*/
 }

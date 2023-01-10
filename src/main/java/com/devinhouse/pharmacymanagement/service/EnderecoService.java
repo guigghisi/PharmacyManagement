@@ -10,4 +10,6 @@ public class EnderecoService {
     public EnderecoService(EnderecoRepository repository) {
         this.repository = repository;
     }
+
+    //TODO restTemplate
 }

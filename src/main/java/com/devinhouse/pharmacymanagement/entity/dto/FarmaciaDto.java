@@ -1,5 +1,6 @@
 package com.devinhouse.pharmacymanagement.entity.dto;
 
+import com.devinhouse.pharmacymanagement.entity.Endereco;
 import com.devinhouse.pharmacymanagement.entity.Farmacia;
 import com.devinhouse.pharmacymanagement.exception.NenhumaFarmaciaException;
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class FarmaciaDto {
     private String email;
     private String telefone;
     private String celular;
+    private Endereco endereco;
 
     public Farmacia transformarEmEntidade() {
         var farmacia = new Farmacia();
@@ -27,7 +29,7 @@ public class FarmaciaDto {
         farmacia.setEmail(this.email);
         farmacia.setTelefone(this.telefone);
         farmacia.setCelular(this.celular);
-
+        farmacia.setEndereco(this.endereco);
         return farmacia;
     }
 
@@ -40,7 +42,7 @@ public class FarmaciaDto {
         farmaciaDto.setEmail(farmaciaSalva.getEmail());
         farmaciaDto.setTelefone(farmaciaSalva.getTelefone());
         farmaciaDto.setCelular(farmaciaSalva.getCelular());
-
+        farmaciaDto.setEndereco(farmaciaSalva.getEndereco());
         return farmaciaDto;
     }
 

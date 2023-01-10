@@ -29,7 +29,8 @@ public class Farmacia {
     @NotNull(message = "O número de celular da farmacia não pode estar vazio")
     private String celular;
     //TODO conectar
-   /* @NotNull
-    @OneToMany(mappedBy = "farmacias")
-    private Endereco id_endereco;*/
+    @NotNull
+    @OneToOne
+    @JoinColumn(name = "id_endereco")
+    private Endereco endereco;
 }
