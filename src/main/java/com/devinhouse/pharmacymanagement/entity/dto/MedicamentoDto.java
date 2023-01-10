@@ -22,24 +22,24 @@ public class MedicamentoDto {
 
     public Medicamento transformarEmEntidade() {
         var medicamento = new Medicamento();
-        medicamento.setNome_medicamento(nome_medicamento);
-        medicamento.setNome_laboratorio(nome_laboratorio);
-        medicamento.setDosagem_medicamento(dosagem_medicamento);
-        medicamento.setDescricao_medicamento(descricao_medicamento);
-        medicamento.setPreco_unitario(preco_unitario);
-        medicamento.setTipo_medicamento(tipo_medicamento);
+        medicamento.setNomeMedicamento(nome_medicamento);
+        medicamento.setNomeLaboratorio(nome_laboratorio);
+        medicamento.setDosagemMedicamento(dosagem_medicamento);
+        medicamento.setDescricaoMedicamento(descricao_medicamento);
+        medicamento.setPrecoUnitario(preco_unitario);
+        medicamento.setTipoMedicamento(tipo_medicamento);
         return medicamento;
     }
 
     public MedicamentoDto transformarEmDto(Medicamento medicamentoSalvo) {
         var medicamentoDto = new MedicamentoDto();
         medicamentoDto.setId(medicamentoSalvo.getId());
-        medicamentoDto.setNome_medicamento(medicamentoSalvo.getNome_medicamento());
-        medicamentoDto.setNome_laboratorio(medicamentoSalvo.getNome_laboratorio());
-        medicamentoDto.setDosagem_medicamento(medicamentoSalvo.getDosagem_medicamento());
-        medicamentoDto.setDescricao_medicamento(medicamentoSalvo.getDescricao_medicamento());
-        medicamentoDto.setPreco_unitario(medicamentoSalvo.getPreco_unitario());
-        medicamentoDto.setTipo_medicamento(medicamentoSalvo.getTipo_medicamento());
+        medicamentoDto.setNome_medicamento(medicamentoSalvo.getNomeMedicamento());
+        medicamentoDto.setNome_laboratorio(medicamentoSalvo.getNomeLaboratorio());
+        medicamentoDto.setDosagem_medicamento(medicamentoSalvo.getDosagemMedicamento());
+        medicamentoDto.setDescricao_medicamento(medicamentoSalvo.getDescricaoMedicamento());
+        medicamentoDto.setPreco_unitario(medicamentoSalvo.getPrecoUnitario());
+        medicamentoDto.setTipo_medicamento(medicamentoSalvo.getTipoMedicamento());
         return medicamentoDto;
     }
 

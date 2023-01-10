@@ -23,10 +23,10 @@ public class MedicamentoService {
     public Medicamento atualizarMedicamento(Long codigoMedicamento, Medicamento medicamento) {
         var medicamentoAntigo = repository.findById(codigoMedicamento).orElseThrow(MedicamentoNaoEncontradoException::new);
 
-        medicamentoAntigo.setDescricao_medicamento(medicamento.getDescricao_medicamento());
-        medicamentoAntigo.setNome_medicamento(medicamento.getNome_medicamento());
-        medicamentoAntigo.setDosagem_medicamento(medicamento.getDosagem_medicamento());
-        medicamentoAntigo.setTipo_medicamento(medicamento.getTipo_medicamento());
+        medicamentoAntigo.setDescricaoMedicamento(medicamento.getDescricaoMedicamento());
+        medicamentoAntigo.setNomeMedicamento(medicamento.getNomeMedicamento());
+        medicamentoAntigo.setDosagemMedicamento(medicamento.getDosagemMedicamento());
+        medicamentoAntigo.setTipoMedicamento(medicamento.getTipoMedicamento());
         return repository.save(medicamentoAntigo);
     }
 

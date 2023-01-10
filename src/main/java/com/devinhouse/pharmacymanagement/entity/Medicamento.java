@@ -18,14 +18,20 @@ public class Medicamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "O nome do medicamento não pode estar vazio")
-    private String nome_medicamento;
+    @Column(name = "nome_medicamento")
+    private String nomeMedicamento;
     @NotNull(message = "O nome do laboratorio não pode estar vazio")
-    private String nome_laboratorio;
+    @Column(name = "nome_laboratorio")
+    private String nomeLaboratorio;
     @NotNull(message = "A dosagem não pode estar vazia")
-    private String dosagem_medicamento;
-    private String descricao_medicamento;
+    @Column(name = "dosagem_medicamento")
+    private String dosagemMedicamento;
+    @Column(name = "descricao_medicamento")
+    private String descricaoMedicamento;
     @NotNull(message = "O preço do medicamento não pode estar vazio")
-    private String preco_unitario;
+    @Column(name = "preco_unitario")
+    private String precoUnitario;
     @NotNull(message = "O tipo do medicamento não pode estar vazio")
-    private String tipo_medicamento;
+    @Column(name = "tipo_medicamento")
+    private String tipoMedicamento;
 }
