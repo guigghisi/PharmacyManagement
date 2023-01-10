@@ -22,7 +22,6 @@ public class MedicamentoDto {
 
     public Medicamento transformarEmEntidade() {
         var medicamento = new Medicamento();
-        //TODO MOSTRAR ID NO JSON
         medicamento.setNome_medicamento(nome_medicamento);
         medicamento.setNome_laboratorio(nome_laboratorio);
         medicamento.setDosagem_medicamento(dosagem_medicamento);

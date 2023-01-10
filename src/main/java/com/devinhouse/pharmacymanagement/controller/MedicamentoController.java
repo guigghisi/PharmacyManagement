@@ -50,7 +50,7 @@ public class MedicamentoController {
     }
 
     @DeleteMapping("/{codigoMedicamento}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public void excluirMedicamento(@PathVariable(value = "codigoMedicamento") Long codigoMedicamento) {
         medicamentoService.excluirMedicamento(codigoMedicamento);
     }
