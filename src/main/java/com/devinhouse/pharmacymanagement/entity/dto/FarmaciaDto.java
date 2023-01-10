@@ -23,9 +23,9 @@ public class FarmaciaDto {
 
     public Farmacia transformarEmEntidade() {
         var farmacia = new Farmacia();
-        farmacia.setRazao_social(this.razao_social);
+        farmacia.setRazaoSocial(this.razao_social);
         farmacia.setCnpj(this.cnpj);
-        farmacia.setNome_fantasia(this.nome_fantasia);
+        farmacia.setNomeFantasia(this.nome_fantasia);
         farmacia.setEmail(this.email);
         farmacia.setTelefone(this.telefone);
         farmacia.setCelular(this.celular);
@@ -36,9 +36,9 @@ public class FarmaciaDto {
     public FarmaciaDto transformaEmDto(Farmacia farmaciaSalva) {
         var farmaciaDto = new FarmaciaDto();
         farmaciaDto.setId(farmaciaSalva.getId());
-        farmaciaDto.setRazao_social(farmaciaSalva.getRazao_social());
+        farmaciaDto.setRazao_social(farmaciaSalva.getRazaoSocial());
         farmaciaDto.setCnpj(farmaciaSalva.getCnpj());
-        farmaciaDto.setNome_fantasia(farmaciaSalva.getNome_fantasia());
+        farmaciaDto.setNome_fantasia(farmaciaSalva.getNomeFantasia());
         farmaciaDto.setEmail(farmaciaSalva.getEmail());
         farmaciaDto.setTelefone(farmaciaSalva.getTelefone());
         farmaciaDto.setCelular(farmaciaSalva.getCelular());

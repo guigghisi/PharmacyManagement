@@ -18,11 +18,13 @@ public class Farmacia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "A razão social da farmacia não pode estar vazia")
-    private String razao_social;
+    @Column(name = "razao_social")
+    private String razaoSocial;
     @NotNull(message = "O CNPJ da farmacia não pode estar vazio")
     private String cnpj;
     @NotNull(message = "O nome fantasia da farmacia não pode estar vazio")
-    private String nome_fantasia;
+    @Column(name = "nome_fantasia")
+    private String nomeFantasia;
     @NotNull(message = "O email da farmacia não pode estar vazio")
     private String email;
     private String telefone;
