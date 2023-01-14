@@ -4,7 +4,7 @@ Esta é uma API para para gerenciamento de medicamentos e farmácias.
 
 ## 🚀 Como rodar o sistema
 
-1 - Use o scpirt que esta na pasta script para poder criar o banco de dados
+1 - Use o script que esta na pasta script para poder criar o banco de dados
 
 2 - Use a vontade 😃
 
