@@ -3,6 +3,7 @@ package com.devinhouse.pharmacymanagement.service;
 import com.devinhouse.pharmacymanagement.entity.Farmacia;
 import com.devinhouse.pharmacymanagement.exception.FarmaciaNaoEncontradaException;
 import com.devinhouse.pharmacymanagement.exception.NenhumaFarmaciaException;
+import com.devinhouse.pharmacymanagement.repository.EnderecoRepository;
 import com.devinhouse.pharmacymanagement.repository.FarmaciaRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +12,17 @@ import java.util.List;
 @Service
 public class FarmaciaService {
     private final FarmaciaRepository repository;
+    private final EnderecoRepository repositoryEndereco;
 
-    public FarmaciaService(FarmaciaRepository repository) {
+    public FarmaciaService(FarmaciaRepository repository, EnderecoRepository repositoryEndereco) {
         this.repository = repository;
+        this.repositoryEndereco = repositoryEndereco;
     }
 
     public Farmacia criarNovaFarmacia(Farmacia farmacia) {
+        var endereco = farmacia.getEndereco();
+        repositoryEndereco.save(endereco);
+
         return repository.save(farmacia);
     }
 
@@ -30,6 +36,7 @@ public class FarmaciaService {
         farmaciaAntiga.setEmail(farmacia.getEmail());
         farmaciaAntiga.setTelefone(farmacia.getTelefone());
         farmaciaAntiga.setCelular(farmacia.getCelular());
+        farmacia.getEndereco().setId(farmaciaAntiga.getEndereco().getId());
         farmaciaAntiga.setEndereco(farmacia.getEndereco());
         return repository.save(farmaciaAntiga);
     }

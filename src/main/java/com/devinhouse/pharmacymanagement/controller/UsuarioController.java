@@ -5,8 +5,6 @@ import com.devinhouse.pharmacymanagement.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -14,15 +12,6 @@ public class UsuarioController {
 
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
-    }
-
-    //TODO REMOVER DPS
-    @GetMapping("/todos")
-    @ResponseStatus(HttpStatus.OK)
-    public List<UsuarioDto> consulta() {
-        var usuarios = usuarioService.buscarTodos();
-        var usuarioDto = new UsuarioDto();
-        return usuarioDto.transformarEmListaDeDtos(usuarios);
     }
 
     @PostMapping("/cadastro")
@@ -35,7 +24,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     public UsuarioDto consultaUsuario(@RequestBody UsuarioDto usuarioDto) {
         var usuario = usuarioDto.transformarEmEntidade();
         return usuarioService.buscaUsuario(usuario);
