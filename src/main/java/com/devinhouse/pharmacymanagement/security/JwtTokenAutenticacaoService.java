@@ -20,29 +20,29 @@ import java.util.Date;
 @Component
 public class JwtTokenAutenticacaoService {
 
-    private static final long expiracao = 24 * 60 * 60 * 2;
+    private static final long EXPIRATION_TIME = 24 * 60 * 60 * 2;
 
-    private  static final String senhaForte = "SENHA";
+    private  static final String SECRET = "SENHA";
 
-    private static final String tokenPrefixo = "Bearer";
+    private static final String TOKEN_PREFIX = "Bearer";
 
-    private static final String cabecalho = "Authorization";
+    private static final String HEADER_STRING = "Authorization";
 
     public void addAutenticacao(HttpServletResponse response, String username) throws IOException {
         String JWT = Jwts.builder()
                 .setSubject(username)
-                .setExpiration(new Date(System.currentTimeMillis()+expiracao))
-                .signWith(SignatureAlgorithm.HS256, senhaForte).compact();
-        String token = tokenPrefixo+ " " + JWT;
+                .setExpiration(new Date(System.currentTimeMillis()+ EXPIRATION_TIME))
+                .signWith(SignatureAlgorithm.HS256, SECRET).compact();
+        String token = TOKEN_PREFIX + " " + JWT;
         response.getWriter().write("{\"Authorization\": \""+token+"\"}");
     }
 
     public Authentication buscarAutenticacao(HttpServletRequest request) {
-        String token = request.getHeader(cabecalho);
+        String token = request.getHeader(HEADER_STRING);
 
         if (token != null) {
-            String user = Jwts.parser().setSigningKey(senhaForte)
-                    .parseClaimsJws(token.replace(tokenPrefixo, ""))
+            String user = Jwts.parser().setSigningKey(SECRET)
+                    .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
                     .getBody().getSubject();
 
             if(user != null){

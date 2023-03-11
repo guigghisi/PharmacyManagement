@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/auth")
 public class UsuarioController {
     private final UsuarioService usuarioService;
 
@@ -15,16 +15,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping("/cadastro")
-    @ResponseStatus(HttpStatus.CREATED)
-    public UsuarioDto cadastraUsuario(@RequestBody UsuarioDto usuarioDto) {
-        Usuario usuario = usuarioDto.transformarEmEntidade();
-        Usuario usuarioSalvo = usuarioService.criarNoVoUsuario(usuario);
-
-        return usuarioDto.transformarEmDto(usuarioSalvo);
-    }
-
-    @PostMapping("/login")
+    @PostMapping()
     @ResponseStatus(HttpStatus.OK)
     public UsuarioDto consultaUsuario(@RequestBody UsuarioDto usuarioDto) {
         Usuario usuario = usuarioDto.transformarEmEntidade();
