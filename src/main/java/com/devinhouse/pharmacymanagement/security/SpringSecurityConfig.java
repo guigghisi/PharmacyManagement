@@ -24,27 +24,22 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http
-                //.cors()
-                //.and()
+
                 .authorizeRequests()
 
                 .antMatchers("/auth/**")
 
                 .permitAll()
 
-                //MEDICAMENTO
                 .antMatchers(HttpMethod.GET,"/medicamento/**").hasAnyRole("GERENTE","ADMINISTRADOR","COLABORADOR")
                 .antMatchers(HttpMethod.POST,"/medicamento/**").hasAnyRole("GERENTE","ADMINISTRADOR","COLABORADOR")
                 .antMatchers(HttpMethod.PUT,"/medicamento/**").hasAnyRole("GERENTE","ADMINISTRADOR")
                 .antMatchers(HttpMethod.DELETE,"/medicamento/**").hasRole("ADMINISTRADOR")
 
-                //FARMÁCIA
                 .antMatchers(HttpMethod.GET,"/farmacia/**").hasAnyRole("GERENTE","ADMINISTRADOR","COLABORADOR")
                 .antMatchers(HttpMethod.POST,"/farmacia/**").hasAnyRole("GERENTE","ADMINISTRADOR","COLABORADOR")
                 .antMatchers(HttpMethod.PUT,"/farmacia/**").hasAnyRole("GERENTE","ADMINISTRADOR")
                 .antMatchers(HttpMethod.DELETE,"/farmacia/**").hasRole("ADMINISTRADOR")
-
-
 
                 .anyRequest()
                 .authenticated()

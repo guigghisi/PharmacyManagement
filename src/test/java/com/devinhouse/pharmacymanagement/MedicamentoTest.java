@@ -25,14 +25,10 @@ import java.net.URI;
 @SpringBootTest
 @AutoConfigureMockMvc
 @AutoConfigureTestEntityManager
-// Caso queira observar o compartamento do teste no banco de dados desative @Transactional
-// Com @Transaction ativado os testes não fazem alteração do estado dos registros no banco de dados
-// Sempre após finalizado o teste transação rodará um RollBack voltando o estado do registro(s) no banco
 @Transactional
 public class MedicamentoTest {
 
     private URI path;
-    private MockHttpServletRequest request;
     private ResultMatcher expectedResult;
 
     @Autowired
@@ -59,7 +55,7 @@ public class MedicamentoTest {
     }
 
     @Test
-    public void testeCadastro() throws Exception {
+    public void testCadastro() throws Exception {
         String jsonCadastro = "{\"nome_medicamento\": \"testeMedicamento\", \"nome_laboratorio\": \"testeMedicamento\", \"dosagem_medicamento\": \"testeMedicamento\", \"descricao_medicamento\": \"testeMedicamento\", \"preco_unitario\": \"45\", \"tipo_medicamento\": \"testeMedicamento\"}";
         path = new URI("/medicamento");
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(path)
@@ -73,7 +69,61 @@ public class MedicamentoTest {
     }
 
     @Test
-    public void testeAtualizar() throws Exception{
+    public void testAtualizar() throws Exception{
+        String jsonCadastro = "{\"id\": \"1\",\"nome_medicamento\": \"testeMedicamento\", \"nome_laboratorio\": \"testeMedicamento\", \"dosagem_medicamento\": \"testeMedicamento\", \"descricao_medicamento\": \"testeMedicamento\", \"preco_unitario\": \"45\", \"tipo_medicamento\": \"testeMedicamento\"}";
+        path = new URI("/medicamento");
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(path)
+                .content(jsonCadastro)
+                .header("Content-Type", "application/json")
+                .header("Authorization", jwtToken);
+
+        expectedResult = MockMvcResultMatchers.status().isCreated();
+
+        mock.perform(request).andExpect(expectedResult);
+    }
+
+    @Test
+    public void testRemover() throws Exception {
+
+        path = new URI("/medicamento/1");
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.delete(path)
+                .header("Content-Type", "application/json")
+                .header("Authorization", jwtToken);
+
+        expectedResult = MockMvcResultMatchers.status().isAccepted();
+
+        mock.perform(request).andExpect(expectedResult);
+    }
+    @Test
+    public void testListar() throws Exception{
+
+        path = new URI("/medicamento");
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(path)
+                .header("Content-Type", "application/json")
+                .header("Authorization", jwtToken);
+
+        expectedResult = MockMvcResultMatchers.status().isOk();
+
+        mock.perform(request).andExpect(expectedResult);
+
+    }
+
+    @Test
+    public void testListarPorNome() throws Exception{
+
+        path = new URI("/medicamento/1");
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(path)
+                .header("Content-Type", "application/json")
+                .header("Authorization", jwtToken);
+
+        expectedResult = MockMvcResultMatchers.status().isOk();
+
+        mock.perform(request).andExpect(expectedResult);
+
+
 
     }
 }
