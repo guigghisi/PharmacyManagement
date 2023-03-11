@@ -21,7 +21,7 @@ public class MedicamentoDto {
     private String tipo_medicamento;
 
     public Medicamento transformarEmEntidade() {
-        var medicamento = new Medicamento();
+        Medicamento medicamento = new Medicamento();
         medicamento.setNomeMedicamento(nome_medicamento);
         medicamento.setNomeLaboratorio(nome_laboratorio);
         medicamento.setDosagemMedicamento(dosagem_medicamento);
@@ -32,7 +32,7 @@ public class MedicamentoDto {
     }
 
     public MedicamentoDto transformarEmDto(Medicamento medicamentoSalvo) {
-        var medicamentoDto = new MedicamentoDto();
+        MedicamentoDto medicamentoDto = new MedicamentoDto();
         medicamentoDto.setId(medicamentoSalvo.getId());
         medicamentoDto.setNome_medicamento(medicamentoSalvo.getNomeMedicamento());
         medicamentoDto.setNome_laboratorio(medicamentoSalvo.getNomeLaboratorio());

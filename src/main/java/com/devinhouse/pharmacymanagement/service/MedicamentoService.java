@@ -21,7 +21,7 @@ public class MedicamentoService {
     }
 
     public Medicamento atualizarMedicamento(Long codigoMedicamento, Medicamento medicamento) {
-        var medicamentoAntigo = repository.findById(codigoMedicamento).orElseThrow(MedicamentoNaoEncontradoException::new);
+        Medicamento medicamentoAntigo = repository.findById(codigoMedicamento).orElseThrow(MedicamentoNaoEncontradoException::new);
 
         medicamentoAntigo.setDescricaoMedicamento(medicamento.getDescricaoMedicamento());
         medicamentoAntigo.setNomeMedicamento(medicamento.getNomeMedicamento());
@@ -42,7 +42,7 @@ public class MedicamentoService {
     }
 
     public void excluirMedicamento(Long codigoMedicamento) {
-        var medicamento = repository.findById(codigoMedicamento).orElseThrow(MedicamentoNaoEncontradoException::new);
+        Medicamento medicamento = repository.findById(codigoMedicamento).orElseThrow(MedicamentoNaoEncontradoException::new);
         repository.delete(medicamento);
     }
 }

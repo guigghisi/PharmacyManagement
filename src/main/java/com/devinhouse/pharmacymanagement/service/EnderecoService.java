@@ -26,7 +26,7 @@ public class EnderecoService {
         ResponseEntity<EnderecoAPI> response = restTemplate.getForEntity(resourceUrl, EnderecoAPI.class);
         EnderecoAPI enderecoAPI = response.getBody();
 
-        var enderecodto = new EnderecoDto();
+        EnderecoDto enderecodto = new EnderecoDto();
         enderecodto.setCep(enderecoAPI.getCep());
         enderecodto.setLogradouro(enderecoAPI.getLogradouro());
         enderecodto.setComplemento(enderecoAPI.getComplemento());

@@ -23,7 +23,7 @@ public class EnderecoDto {
     private String longitude;
 
     public Endereco transformarEmEntidade() {
-        var endereco = new Endereco();
+        Endereco endereco = new Endereco();
 
         endereco.setBairro(this.bairro);
         endereco.setCep(this.cep);
@@ -40,7 +40,7 @@ public class EnderecoDto {
     }
 
     public EnderecoDto transformarEmDto(Endereco enderecoSalvo) {
-        var enderecoDto = new EnderecoDto();
+        EnderecoDto enderecoDto = new EnderecoDto();
         enderecoDto.setId(enderecoSalvo.getId());
         enderecoDto.setBairro(enderecoSalvo.getBairro());
         enderecoDto.setCep(enderecoSalvo.getCep());

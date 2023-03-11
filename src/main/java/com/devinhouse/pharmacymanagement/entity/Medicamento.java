@@ -1,7 +1,9 @@
 package com.devinhouse.pharmacymanagement.entity;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

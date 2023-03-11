@@ -1,5 +1,6 @@
 package com.devinhouse.pharmacymanagement.controller;
 
+import com.devinhouse.pharmacymanagement.entity.Usuario;
 import com.devinhouse.pharmacymanagement.entity.dto.UsuarioDto;
 import com.devinhouse.pharmacymanagement.service.UsuarioService;
 import org.springframework.http.HttpStatus;
@@ -17,8 +18,8 @@ public class UsuarioController {
     @PostMapping("/cadastro")
     @ResponseStatus(HttpStatus.CREATED)
     public UsuarioDto cadastraUsuario(@RequestBody UsuarioDto usuarioDto) {
-        var usuario = usuarioDto.transformarEmEntidade();
-        var usuarioSalvo = usuarioService.criarNoVoUsuario(usuario);
+        Usuario usuario = usuarioDto.transformarEmEntidade();
+        Usuario usuarioSalvo = usuarioService.criarNoVoUsuario(usuario);
 
         return usuarioDto.transformarEmDto(usuarioSalvo);
     }
@@ -26,7 +27,7 @@ public class UsuarioController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     public UsuarioDto consultaUsuario(@RequestBody UsuarioDto usuarioDto) {
-        var usuario = usuarioDto.transformarEmEntidade();
+        Usuario usuario = usuarioDto.transformarEmEntidade();
         return usuarioService.buscaUsuario(usuario);
     }
 }

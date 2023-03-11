@@ -1,5 +1,6 @@
 package com.devinhouse.pharmacymanagement.service;
 
+import com.devinhouse.pharmacymanagement.entity.Endereco;
 import com.devinhouse.pharmacymanagement.entity.Farmacia;
 import com.devinhouse.pharmacymanagement.exception.FarmaciaNaoEncontradaException;
 import com.devinhouse.pharmacymanagement.exception.NenhumaFarmaciaException;
@@ -20,14 +21,14 @@ public class FarmaciaService {
     }
 
     public Farmacia criarNovaFarmacia(Farmacia farmacia) {
-        var endereco = farmacia.getEndereco();
+        Endereco endereco = farmacia.getEndereco();
         repositoryEndereco.save(endereco);
 
         return repository.save(farmacia);
     }
 
     public Farmacia atualizarFarmacia(Long codigoFarmacia, Farmacia farmacia) {
-        var farmaciaAntiga = repository.findById(codigoFarmacia).orElseThrow(FarmaciaNaoEncontradaException::new);
+        Farmacia farmaciaAntiga = repository.findById(codigoFarmacia).orElseThrow(FarmaciaNaoEncontradaException::new);
 
         farmaciaAntiga.setRazaoSocial(farmacia.getRazaoSocial());
         farmaciaAntiga.setEndereco(farmacia.getEndereco());
@@ -53,7 +54,7 @@ public class FarmaciaService {
     }
 
     public void excluirFarmacia(Long codigoFarmacia) {
-        var farmacia = repository.findById(codigoFarmacia).orElseThrow(FarmaciaNaoEncontradaException::new);
+        Farmacia farmacia = repository.findById(codigoFarmacia).orElseThrow(FarmaciaNaoEncontradaException::new);
         repository.delete(farmacia);
     }
 }
