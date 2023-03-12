@@ -19,13 +19,13 @@ public class UsuarioDto {
     private String senha;
 
     public static UsuarioDto retornarId(Usuario usuario) {
-        var usuarioDto = new UsuarioDto();
+        UsuarioDto usuarioDto = new UsuarioDto();
         usuarioDto.setId(usuario.getId());
         return usuarioDto;
     }
 
     public Usuario transformarEmEntidade() {
-        var usuario = new Usuario();
+        Usuario usuario = new Usuario();
 
         usuario.setEmail(this.email);
         usuario.setSenha(this.senha);
@@ -34,7 +34,7 @@ public class UsuarioDto {
     }
 
     public UsuarioDto transformarEmDto(Usuario usuarioSalvo) {
-        var usuarioDto = new UsuarioDto();
+        UsuarioDto usuarioDto = new UsuarioDto();
         usuarioDto.setId(usuarioSalvo.getId());
         usuarioDto.setEmail(usuarioSalvo.getEmail());
         usuarioDto.setSenha(usuarioSalvo.getSenha());

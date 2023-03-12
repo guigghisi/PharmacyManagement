@@ -22,7 +22,7 @@ public class FarmaciaDto {
     private Endereco endereco;
 
     public Farmacia transformarEmEntidade() {
-        var farmacia = new Farmacia();
+        Farmacia farmacia = new Farmacia();
         farmacia.setRazaoSocial(this.razao_social);
         farmacia.setCnpj(this.cnpj);
         farmacia.setNomeFantasia(this.nome_fantasia);
@@ -34,7 +34,7 @@ public class FarmaciaDto {
     }
 
     public FarmaciaDto transformaEmDto(Farmacia farmaciaSalva) {
-        var farmaciaDto = new FarmaciaDto();
+        FarmaciaDto farmaciaDto = new FarmaciaDto();
         farmaciaDto.setId(farmaciaSalva.getId());
         farmaciaDto.setRazao_social(farmaciaSalva.getRazaoSocial());
         farmaciaDto.setCnpj(farmaciaSalva.getCnpj());
