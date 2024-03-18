@@ -18,5 +18,6 @@ Esta é uma API para para gerenciamento de medicamentos e farmácias.
 - [Spring Web MVC](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html)
 - [Spring Data](https://spring.io/projects/spring-data)
 
-## Documento do projeto
-https://docs.google.com/document/d/1X5zHsNAh6HbFGdjEAD6Wx3b4fqDS8uXPWqN0zK2Cr9U/edit#heading=h.75i3hck5zq7c
+## Documentos do projeto
+- Parte 1: https://docs.google.com/document/d/1X5zHsNAh6HbFGdjEAD6Wx3b4fqDS8uXPWqN0zK2Cr9U
+- Parte 2: https://docs.google.com/document/d/1bzViwpZwwPdgLne6KF4pQ4he8ALGtQ8yCy0JmoIK8n0
